@@ -21,6 +21,28 @@
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <h1>Windsta Weather App</h1>
+          <form id="search-form" class="mb-3">
+            <!-- mb-3 margin bottom 3px -->
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Type a city..."
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-100"
+                />
+                <!-- w-100 -- setting a width of 100px -->
+              </div>
+            </div>
+          </form>
           <div class="overview">
             <h2 id="city">New York</h2>
             <ul>
