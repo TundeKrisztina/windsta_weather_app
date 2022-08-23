@@ -49,7 +49,6 @@ function displayTemperature(response) {
 
 function search(city) {
   //local variables - accessible only in this specific function
-  let apiKey = "11af92cd97a626ecc5ce2d392902cc0b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -58,6 +57,19 @@ function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
+}
+
+function showPosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function getCurrentPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
 }
 
 function displayFahrenheitTemperature(event) {
@@ -80,9 +92,14 @@ function displayCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 
+let apiKey = "11af92cd97a626ecc5ce2d392902cc0b";
+
 //global variables - accessible inside functions
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let currentLocation = document.querySelector("#current-btn");
+currentLocation.addEventListener("click", getCurrentPosition);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
