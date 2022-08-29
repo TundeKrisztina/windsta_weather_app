@@ -138,4 +138,4 @@ let currentLocation = document.querySelector("#current-btn");
 currentLocation.addEventListener("click", getCurrentPosition);
 
 //this is going to be used on load
-search("New York");
+search("Budapest");
