@@ -69,8 +69,7 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  let oneCallApiKey = "a43564c91a6c605aeb564c9ed02e3858";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${oneCallApiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -128,7 +127,7 @@ function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-let apiKey = "75c8e6ecd04089eae3f42bd7de577233";
+let apiKey = "b40b135798f82a05aed08769f9275f50";
 
 //global variables - accessible inside functions
 let form = document.querySelector("#search-form");
